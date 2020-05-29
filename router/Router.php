@@ -12,12 +12,15 @@ class Router {
     function __construct($get, $post, $self, $url) {
         $this->get = $get;
         $this->post = $post;
-        $this->controller_list = ['index'];
+        $this->controller_list = ['index', 'login'];
         $this->controller_name = false;
         $this->controller = false;
         $this->root = $this->parseRoot($self);
         $this->route = $this->parseURL($url);
         $this->run();
+
+        var_dump("self : ", $self);
+        var_dump("url : ", $url);
     }
     
     private function parseRoot($self) {
@@ -25,9 +28,14 @@ class Router {
     }
     
     private function parseURL($url) {
-        //var_dump($this->root);
-        $path = str_replace($this->root, '', $url);
+        //var_dump("url : ", $url);                    //         $url = /login.php
+        //var_dump("root : ", $this->root);          //         $this->root = /
+        $path = str_replace($this->root, '', $url);  //         $path = "" (login.php)
+        //var_dump($path);
+
         $path = explode('/', $path);
+
+        //var_dump($path);
         
         if($path && $path[0]) {
             $path[0]=substr($path[0],0,strpos($path[0],"?"));
@@ -47,6 +55,9 @@ class Router {
         } 
         //nettoyer le path pour n'y laisser que ce qui est important
         //return $path[3];
+
+        //var_dump($path); //is empty !!
+        //var_dump($this->$controller_name);
         return $path;
         
     }

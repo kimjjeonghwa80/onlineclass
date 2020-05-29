@@ -1,5 +1,5 @@
 <?php
-class IndexPageView {
+class LoginPageView {
 
     private $page;
     private $render;
@@ -9,20 +9,22 @@ class IndexPageView {
         $this->render = false;
     }
 
-
-    /**
-     * Fonction appelée par le controleur IndexController
-     */
     function displayPage() {
         $this->generatePage();
-
         return $this->render;
     }
 
     function generatePage(){
         $this->page = $this->generateHeader();
+        $this->page .= $this->generateLoginForm();
         $this->page .= $this->generateFooter();
         $this->render = $this->generateShell();
+    }
+
+    function generateLoginForm(){
+        ob_start();                                                                         //met en tampon
+            include 'views/templates/loginForm.php';
+        return ob_get_clean();
     }
 
     function generateHeader() {

@@ -1,1 +1,1 @@
-<footer>FOOTER ICI</footer>
+<footer class="footer">FOOTER ICI</footer>
