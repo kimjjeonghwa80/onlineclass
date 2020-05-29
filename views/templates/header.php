@@ -7,8 +7,7 @@
 </head>
 <div class="navbar">
     <a href="#">HOME</a>
-    <a href="#">ARTICLES</a>
-    <a href="#">PORTFOLIO</a>
-    <a href="#">ABOUT</a>
+    <a href="#">LOGIN</a>
+    <a href="#">COURS</a>
     <a href="#">CONTACT</a>
 </div>
