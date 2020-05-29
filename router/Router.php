@@ -42,7 +42,9 @@ class Router {
         
         if($controller && in_array($controller, $this->controller_list)) {
             $this->controller_name = ucfirst($controller.'Controller');
-        }  
+        } else {
+            $this->controller_name = "IndexController"; //marche pas (renvoie 404 quand on met une mauvaise URL)
+        } 
         //nettoyer le path pour n'y laisser que ce qui est important
         //return $path[3];
         return $path;
