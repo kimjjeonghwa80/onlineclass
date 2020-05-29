@@ -25,7 +25,7 @@ class Router {
     }
     
     private function parseURL($url) {
-        var_dump($this->root);
+        //var_dump($this->root);
         $path = str_replace($this->root, '', $url);
         $path = explode('/', $path);
         

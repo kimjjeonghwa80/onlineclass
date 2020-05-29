@@ -1,4 +1,8 @@
 <?php
+//fait le bridge
+/**
+ * A le controle sur ce que la vue doit faire
+ */
 class IndexController {
     private $dao;
     private $view;
@@ -6,8 +10,12 @@ class IndexController {
     function __construct($get, $post, $route) {
         
         $this->view = new IndexPageView();
-        //var_dump('route', $route, 'post', $post);
+        //var_dump($this->view);
+        $this->displayPage();
     }
     
-   
+    function displayPage() {
+        echo $this->view->displayPage();
+    }
+    
 }
