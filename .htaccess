@@ -1,3 +1,5 @@
 RewriteEngine On
 RewriteBase /
-RewriteRule ^(.+)$ index.php [QSA,L]
+RewriteRule ^(.*).html$ http://onlineclass.be/$1 [R=301,L]
+RewriteRule ^(.*).htm$  http://onlineclass.be/$1 [R=301,L]
+RewriteRule ^(.*).php$  http://onlineclass.be/$1 [R=301,L]
