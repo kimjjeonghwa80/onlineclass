@@ -1,5 +1,4 @@
 RewriteEngine On
-RewriteBase /
-RewriteRule ^(.*).html$ http://onlineclass.be/$1 [R=301,L]
-RewriteRule ^(.*).htm$  http://onlineclass.be/$1 [R=301,L]
-RewriteRule ^(.*).php$  http://onlineclass.be/$1 [R=301,L]
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(([^/]+/)*([^/.]+))\.php[\ ?]
+RewriteRule \.php$ /%1/ [R=301,NC,L]
+RewriteRule ^(.*)/$ /$1.php [NC,L]

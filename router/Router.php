@@ -15,8 +15,8 @@ class Router {
         $this->controller_list = ['index', 'login'];
         $this->controller_name = false;
         $this->controller = false;
-        //$this->root = $this->parseRoot($self);
-        $this->root = "/";
+        $this->root = $this->parseRoot($self);
+        //$this->root = "/";
         $this->route = $this->parseURL($url);
         $this->run();
 
@@ -26,12 +26,12 @@ class Router {
     }
     
     private function parseRoot($self) {
-        //return str_replace('index.php', '', $self);
-        return "/";
+        return str_replace('index.php', '', $self);
+        //return "/";
     }
     
     private function parseURL($url) {
-        //var_dump("url : ", $url);                         //         $url = /login.php
+        var_dump("url : ", $url);                         //         $url = /login.php
         //var_dump("root : ", $this->root);                 //         $this->root = /
         $path = str_replace($this->root, '', $url);         //         $path = "" (login.php)
         //$path = $url;
@@ -57,7 +57,7 @@ class Router {
             $controller = 'index';
             //var_dump("TRUE");
         }
-        var_dump($controller);
+        //var_dump($controller);
         if($controller && in_array($controller, $this->controller_list)) {
             $this->controller_name = ucfirst($controller.'Controller');
         } else {
@@ -67,7 +67,7 @@ class Router {
         //return $path[3];
 
         //var_dump($path); //is empty !!
-        //var_dump($this->$controller_name);
+        var_dump($this->$controller_name);
         return $path;
         
     }
