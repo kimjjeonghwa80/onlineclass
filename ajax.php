@@ -18,7 +18,7 @@ spl_autoload_register(function($class) {
 
 
 //echo "Try to register...";
-//var_dump($_POST);
+var_dump($_POST);
 
 if(isset($_POST) && isset($_POST['pk_id'], $_POST['lastname'],$_POST['firstname'],$_POST['email'],$_POST['password'],$_POST['fk_role'])){
     echo "try to register";
@@ -35,7 +35,7 @@ if(isset($_POST) && isset($_POST['pk_id'], $_POST['lastname'],$_POST['firstname'
         "fk_role"   => $_POST['fk_role']
     );
 
-    var_dump("im in if ajax");
+    
     $user = new UserDAO();
     $user->save($userPremise);
 }
