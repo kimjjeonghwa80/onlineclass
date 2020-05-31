@@ -15,10 +15,37 @@ spl_autoload_register(function($class) {
     }
 });
 
-echo "try to register";
-if(isset($_POST) && isset($_POST['register'])){
+
+
+//echo "Try to register...";
+//var_dump($_POST);
+
+if(isset($_POST) && isset($_POST['pk_id'], $_POST['lastname'],$_POST['firstname'],$_POST['email'],$_POST['password'],$_POST['fk_role'])){
     echo "try to register";
+
+    $pwd = password_hash($_POST['fk_role'], PASSWORD_DEFAULT);
+    var_dump($pwd);
+
+    $userPremise = array(
+        "pk_id"     => $_POST['pk_id'],
+        "lastname"  => $_POST['lastname'],
+        "firstname" => $_POST['firstname'],
+        "email"     => $_POST['email'],
+        "password"  => $pwd,
+        "fk_role"   => $_POST['fk_role']
+    );
+
+    var_dump("im in if ajax");
+    $user = new UserDAO();
+    $user->save($userPremise);
 }
 
-echo "<pre>";
-var_dump($_GET);
+
+//echo "<pre>";
+
+            // $data['pk_id'],
+            // $data['lastname'],
+            // $data['firstname'],
+            // $data['email'],
+            // $data['password'],
+            // $data['fk_role']

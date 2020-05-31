@@ -4,16 +4,26 @@ class User{
     private $firstname;
     private $lastname;
     private $password;
+    private $email;
     private $fk_role;
 
 
-    function __construct($pk_id, $lastname, $firstname, $password, $role)
+            // $data['pk_id'],
+            // $data['lastname'],
+            // $data['firstname'],
+            // $data['email'],
+            // $data['password'],
+            // $data['fk_role']
+
+    function __construct($pk_id, $lastname, $firstname, $email, $password, $role)
     {
-        $this->pk_id = $pk_id;
-        $this->firstname = $firstname;
-        $this->lastname = $lastname;
-        $this->password = $password;
-        $this->fk_role = $role;
+        $this->pk_id        = $pk_id;
+        $this->lastname     = $lastname;
+        $this->firstname    = $firstname;
+        $this->email        = $email;
+        $this->password     = $password;
+        $this->fk_role      = $role;
+        //var_dump("User Object : ",$this);
     }
 
 

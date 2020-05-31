@@ -1,4 +1,4 @@
-<form action="/ajax.php" method="POST" id="submitRegister">
+<form action="/ajax" method="POST" id="submitRegister">
   <div class="containerRegister">
     <h1>Register</h1>
     <label>Lastname</label>

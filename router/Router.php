@@ -12,7 +12,7 @@ class Router {
     function __construct($get, $post, $self, $url) {
         $this->get = $get;
         $this->post = $post;
-        $this->controller_list = ['index', 'login', 'register'];
+        $this->controller_list = ['index', 'login', 'register','ajax'];
         $this->controller_name = false;
         $this->controller = false;
         $this->root = $this->parseRoot($self);
@@ -23,7 +23,8 @@ class Router {
         //var_dump("self : ", $self);
         //var_dump("url : ", $url);
         //var_dump($_SERVER['PHP_SELF']);                     //   /login.php
-        var_dump("GET : ", $this->get);
+        //var_dump("GET : ", $this->get);
+        
     }
     
     private function parseRoot($self) {

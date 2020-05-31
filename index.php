@@ -19,15 +19,24 @@ $router = new Router($_GET, $_POST, $_SERVER['PHP_SELF'], $_SERVER['REQUEST_URI'
 
 
 echo "<pre>";
-var_dump($router);
+//var_dump($router);
 // $user = new UserDAO();
 // $user->save(
 //         [
-//             'pk_id' => 5,
-//             'lastname' => "Vandamme",
+//             'pk_id'     => 5,
+//             'lastname'  => "Vandamme",
 //             'firstname' => "Jean-Claude",
-//             'password' => "132456",
-//             'fk_role' => 1
+//             'email'     => "jean@claude",
+//             'password'  => "132456",
+//             'fk_role'   => 1
 //         ]
 //     );
+//var_dump($user);
 
+
+// $data['pk_id'],
+// $data['lastname'],
+// $data['firstname'],
+// $data['email'],
+// $data['password'],
+// $data['fk_role']

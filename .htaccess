@@ -1,4 +1,7 @@
 RewriteEngine On
+ # ignore if is a POST
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^ - [L]
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(([^/]+/)*([^/.]+))\.php[\ ?]
 RewriteRule \.php$ /%1/ [R=301,NC,L]
 RewriteRule ^(.*)/$ /$1.php [NC,L]

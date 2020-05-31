@@ -12,6 +12,7 @@ class IndexController {
         $this->view = new IndexPageView();
         //var_dump($this->view);
         $this->displayPage();
+        var_dump("Je suis dans l'indexController");
     }
     
     function displayPage() {

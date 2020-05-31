@@ -9,7 +9,7 @@ class UserDAO extends DAO{
     function __construct(){
         parent::__construct();
         $this->table = "users";
-        $this->properties = ['pk_id', 'lastname','firstname','password','fk_role'];
+        $this->properties = ['pk_id', 'lastname','firstname','email','password','fk_role'];
     }
 
 
@@ -18,15 +18,23 @@ class UserDAO extends DAO{
             $data['pk_id'],
             $data['lastname'],
             $data['firstname'],
+            $data['email'],
             $data['password'],
             $data['fk_role']
         );
     }
 
+            // $data['pk_id'],
+            // $data['lastname'],
+            // $data['firstname'],
+            // $data['email'],
+            // $data['password'],
+            // $data['fk_role']
+
     function save($data) {
         $data['pk_id'] = -1; 
         $object = $this->create($data);
-        var_dump($object);
+        var_dump("User object: ", $object);
         if ($object) {
             $qry = "(";
             $values = array();
@@ -42,8 +50,9 @@ class UserDAO extends DAO{
 
             $qry = rtrim($qry, ",");
             $qry.=')';
-            $qry = "INSERT INTO {$this->table}{$qry} VALUES (?, ?, ?, ?)";
-            //var_dump($values);
+            $qry = "INSERT INTO {$this->table}{$qry} VALUES (?, ?, ?, ?, ?)";
+            //var_dump($qry);
+
 
             try {
                 $statement = $this->connection->prepare($qry);
