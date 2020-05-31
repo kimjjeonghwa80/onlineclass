@@ -12,7 +12,7 @@ class Router {
     function __construct($get, $post, $self, $url) {
         $this->get = $get;
         $this->post = $post;
-        $this->controller_list = ['index', 'login'];
+        $this->controller_list = ['index', 'login', 'register'];
         $this->controller_name = false;
         $this->controller = false;
         $this->root = $this->parseRoot($self);
@@ -29,9 +29,18 @@ class Router {
         return str_replace('index.php', '', $self);
         //return "/";
     }
+
+
+    /**
+     * req = new array(
+     *      url => value,
+     *      param => value,
+     *      parm_val => value
+     * )
+     */
     
     private function parseURL($url) {
-        var_dump("url : ", $url);                         //         $url = /login.php
+        //var_dump("url : ", $url);                         //         $url = /login.php
         //var_dump("root : ", $this->root);                 //         $this->root = /
         $path = str_replace($this->root, '', $url);         //         $path = "" (login.php)
         //$path = $url;
@@ -39,19 +48,19 @@ class Router {
 
         $path = explode('/', $path);
         
-        //var_dump($path);
         
-        if($path && $path[0]) {
+        
+        if($path && $path[1]) {
             $path[0]=substr($path[0],0,strpos($path[0],"?"));
-            
+            //var_dump($path);
         }
         
         
         
         $controller = false;
-        if($path && count($path) && strlen($path[0])) {
-            $controller = $path[0];
-            //
+        if($path && count($path) && strlen($path[1])) {
+            $controller = $path[1];
+            var_dump("controler", $controller); //je ne rentre jamais ici !!
             
         } else if(count($path) && !strlen($path[0])) {
             $controller = 'index';
@@ -60,6 +69,8 @@ class Router {
         //var_dump($controller);
         if($controller && in_array($controller, $this->controller_list)) {
             $this->controller_name = ucfirst($controller.'Controller');
+
+            //var_dump($this->controller_name);
         } else {
             $this->controller_name = "IndexController"; //marche pas (renvoie 404 quand on met une mauvaise URL)
         } 
@@ -67,7 +78,7 @@ class Router {
         //return $path[3];
 
         //var_dump($path); //is empty !!
-        var_dump($this->$controller_name);
+        //var_dump($this->$controller_name);
         return $path;
         
     }

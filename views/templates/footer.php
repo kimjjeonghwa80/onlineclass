@@ -1,1 +1,1 @@
-<footer class="footer">FOOTER ICI</footer>
+<footer class="footer"> <p>&copy; Ifosup Wavre - 2020</p></footer>

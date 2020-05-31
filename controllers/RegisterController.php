@@ -1,10 +1,10 @@
 <?php
-class LoginController {
+class RegisterController {
     private $view;
-
+    
     function __construct(){
-        var_dump("Controller Login");
-        $this->view = new LoginPageView();
+        var_dump("REgister Controller");
+        $this->view = new RegisterPageView();
         $this->displayPage();
     }
 

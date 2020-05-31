@@ -6,8 +6,8 @@
     <title>Online Class</title>
 </head>
 <div class="navbar">
-    <a href="#">HOME</a>
-    <a href="/login.php">LOGIN</a>
+    <a href="/">HOME</a>
+    <a href="login.php">LOGIN</a>
     <a href="#">COURS</a>
     <a href="#">CONTACT</a>
 </div>

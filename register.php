@@ -16,17 +16,3 @@ spl_autoload_register(function($class) {
 });
 
 $router = new Router($_GET, $_POST, $_SERVER['PHP_SELF'], $_SERVER['REQUEST_URI']);
-
-
-echo "<pre>";
-/* $user = new UserDAO();
-$user->save(
-        [
-            'pk_id' => 5,
-            'lastname' => "Vandamme",
-            'firstname' => "Jean-Claude",
-            'fk_role' => 1
-        ]
-    );
-
- */
