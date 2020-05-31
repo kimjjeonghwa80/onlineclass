@@ -15,3 +15,5 @@
       </div>
     </form>
   </div>
+  
+  <!-- COMMENT : j'aurais aimé dynamiquement ajouter les scripts js en fonction de la page (pas le temps de modifier mon code) -->

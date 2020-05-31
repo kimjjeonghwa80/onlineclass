@@ -16,7 +16,7 @@ $(document).ready(function () {
 
         //TODO check if the user is already exist 
         //redirect user to login page...
-        console.log(data);
+        //do email.lowerCase() to preserve uniq stuff
 
 
         var xhr = $.post('/ajax.php', data, function(){
