@@ -23,6 +23,7 @@ class Router {
         //var_dump("self : ", $self);
         //var_dump("url : ", $url);
         //var_dump($_SERVER['PHP_SELF']);                     //   /login.php
+        var_dump("GET : ", $this->get);
     }
     
     private function parseRoot($self) {
@@ -60,7 +61,7 @@ class Router {
         $controller = false;
         if($path && count($path) && strlen($path[1])) {
             $controller = $path[1];
-            var_dump("controler", $controller); //je ne rentre jamais ici !!
+            var_dump("controller", $controller); //je ne rentre jamais ici !!
             
         } else if(count($path) && !strlen($path[0])) {
             $controller = 'index';
@@ -86,6 +87,7 @@ class Router {
     private function run() {
         if($this->controller_name) {
             $this->controller = new $this->controller_name($this->get, $this->post, $this->route);
+            //var_dump($this->controller);
         }
     }
 }

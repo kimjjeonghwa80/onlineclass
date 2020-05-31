@@ -15,19 +15,10 @@ spl_autoload_register(function($class) {
     }
 });
 
-$router = new Router($_GET, $_POST, $_SERVER['PHP_SELF'], $_SERVER['REQUEST_URI']);
-
+echo "try to register";
+if(isset($_POST) && isset($_POST['register'])){
+    echo "try to register";
+}
 
 echo "<pre>";
-var_dump($router);
-// $user = new UserDAO();
-// $user->save(
-//         [
-//             'pk_id' => 5,
-//             'lastname' => "Vandamme",
-//             'firstname' => "Jean-Claude",
-//             'password' => "132456",
-//             'fk_role' => 1
-//         ]
-//     );
-
+var_dump($_GET);

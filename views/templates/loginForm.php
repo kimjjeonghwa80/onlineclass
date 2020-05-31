@@ -12,7 +12,6 @@
       <button type="submit">Submit</button>
       <div class="footer-box">
         <p><strong><a href="/register.php">Register</a></strong></p>
-        <p>&copy; Ifosup Wavre - 2020</p>
       </div>
     </form>
   </div>

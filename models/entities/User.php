@@ -3,14 +3,16 @@ class User{
     private $pk_id;
     private $firstname;
     private $lastname;
+    private $password;
     private $fk_role;
 
 
-    function __construct($pk_id, $lastname, $firstname,  $role)
+    function __construct($pk_id, $lastname, $firstname, $password, $role)
     {
         $this->pk_id = $pk_id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
+        $this->password = $password;
         $this->fk_role = $role;
     }
 
