@@ -50,7 +50,10 @@ if(isset($_POST) && isset($_POST['login'], $_POST['password'])){
 
     if($user){
         //echo "loggin success ...";
-        
+        $test = array(
+            "user" => "bruce"
+        );
+        echo json_encode($test);
 
     }else{
         $response = array("success" => false);

@@ -9,7 +9,6 @@
         <label for="iPassword">password</label>
         <input id="iPassword" type="password" placeholder="enter your password" class="loginField"/>
       </div>
-      <!-- <button type="submit" id="submitLogin">Submit</button> -->
       <input type="submit"  id="submitLogin"/>
       <div class="footer-box">
         <p><strong><a href="/register.php">Register</a></strong></p>
@@ -17,4 +16,4 @@
     </form>
   </div>
   
-  <!-- COMMENT : j'aurais aimé dynamiquement ajouter les scripts js en fonction de la page (pas le temps de modifier mon code) -->
+ 
