@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    console.log("ready to register");
+    //console.log("ready to register");
 
     $('#submitRegister').on('submit', function(e){
         e.preventDefault();

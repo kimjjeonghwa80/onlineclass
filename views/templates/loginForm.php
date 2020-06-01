@@ -9,7 +9,7 @@
         <label for="iPassword">password</label>
         <input id="iPassword" type="password" placeholder="enter your password" />
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" id="submitLogin">Submit</button>
       <div class="footer-box">
         <p><strong><a href="/register.php">Register</a></strong></p>
       </div>
