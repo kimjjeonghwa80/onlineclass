@@ -12,7 +12,7 @@ class Router {
     function __construct($get, $post, $self, $url) {
         $this->get = $get;
         $this->post = $post;
-        $this->controller_list = ['index', 'login', 'register','ajax'];
+        $this->controller_list = ['index', 'login', 'register','ajax','home'];
         $this->controller_name = false;
         $this->controller = false;
         $this->root = $this->parseRoot($self);
@@ -73,9 +73,9 @@ class Router {
             $this->controller_name = ucfirst($controller.'Controller');
 
             //var_dump($this->controller_name);
-        } else {
-            $this->controller_name = "IndexController"; //marche pas (renvoie 404 quand on met une mauvaise URL)
-        } 
+        } //else {
+        //     $this->controller_name = "IndexController"; //marche pas (renvoie 404 quand on met une mauvaise URL)
+        // } 
         //nettoyer le path pour n'y laisser que ce qui est important
         //return $path[3];
 

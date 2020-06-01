@@ -6,6 +6,8 @@ class User{
     private $password;
     private $email;
     private $fk_role;
+    private $session_token;
+    private $session_time;
 
 
             // $data['pk_id'],
@@ -15,7 +17,7 @@ class User{
             // $data['password'],
             // $data['fk_role']
 
-    function __construct($pk_id, $lastname, $firstname, $email, $password, $role)
+    function __construct($pk_id, $lastname, $firstname, $email, $password, $role, $session_token, $session_time)
     {
         $this->pk_id        = $pk_id;
         $this->lastname     = $lastname;
@@ -23,6 +25,8 @@ class User{
         $this->email        = $email;
         $this->password     = $password;
         $this->fk_role      = $role;
+        $this->session_token = $session_token;
+        $this->session_time = $session_time;
         //var_dump("User Object : ",$this);
     }
 
