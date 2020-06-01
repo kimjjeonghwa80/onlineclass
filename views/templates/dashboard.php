@@ -16,6 +16,19 @@
 <body>
     
     <?= $this->__get('page'); ?>
-    
+    <div class="containerRegister">
+        <table id="tableCourses">
+            <tbody>
+                <tr>
+
+                    <th>Modules</th>
+                    <th>Teacher</th>
+                    <th>Courses</th>
+                    <th>Start</th>
+                    <th>Description</th>
+                </tr>
+            </tbody> 
+        </table>
+    </div>
 </body>
 </html>
