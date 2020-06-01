@@ -3,7 +3,7 @@ class LoginController {
     private $view;
 
     function __construct(){
-        var_dump("Controller Login");
+        //var_dump("Controller Login");
         $this->view = new LoginPageView();
         $this->displayPage();
     }

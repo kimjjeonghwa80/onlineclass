@@ -16,3 +16,4 @@ spl_autoload_register(function($class) {
 });
 
 $router = new Router($_GET, $_POST, $_SERVER['PHP_SELF'], $_SERVER['REQUEST_URI']);
+

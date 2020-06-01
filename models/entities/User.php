@@ -10,12 +10,7 @@ class User{
     private $session_time;
 
 
-            // $data['pk_id'],
-            // $data['lastname'],
-            // $data['firstname'],
-            // $data['email'],
-            // $data['password'],
-            // $data['fk_role']
+
 
     function __construct($pk_id, $lastname, $firstname, $email, $password, $role, $session_token, $session_time)
     {

@@ -28,8 +28,8 @@ class UserDAO extends DAO{
 
     function save($data) {
         $data['pk_id']          = -1;
-        $data['session_token']  = 0;
-        $data['session_time']   = 0; 
+        $data['session_token']  =  0;
+        $data['session_time']   =  0; 
         $object = $this->create($data);
         //var_dump("User object: ", $object);
         if ($object) {
@@ -84,8 +84,8 @@ class UserDAO extends DAO{
         try {
             $statement = $this->connection->prepare("UPDATE {$this->table} SET session_token = ?, session_time = ? WHERE pk_id = ?");
             $statement->execute([$user->__get('session_token'), $user->__get('session_time'), $user->__get('pk_id')]);
-            var_dump('user updated');
-            header('location:index.php');
+            //var_dump('user updated');
+            //header('location:index.php');
         } catch (PDOException $e) {
             print $e->getMessage();
         }

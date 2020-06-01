@@ -62,7 +62,7 @@ class Router {
         $controller = false;
         if($path && count($path) && strlen($path[1])) {
             $controller = $path[1];
-            var_dump("controller", $controller); //je ne rentre jamais ici !!
+            //var_dump("controller", $controller); //je ne rentre jamais ici !!
             
         } else if(count($path) && !strlen($path[0])) {
             $controller = 'index';

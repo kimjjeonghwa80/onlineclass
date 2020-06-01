@@ -9,13 +9,13 @@
 </head>
 <div class="navbar">
     <a href="/">HOME</a>
-    <a href="/login.php">LOGIN</a>
+    <a href="/login.php">CHAT</a>
     <a href="#">COURS</a>
-    <a href="#">USER</a>
+    <a href="#" id="userHome">USER</a>
 </div>
 <body>
-    <pre>
+    
     <?= $this->__get('page'); ?>
-    <?= var_dump($this); ?>
+    
 </body>
 </html>

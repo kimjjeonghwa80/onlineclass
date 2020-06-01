@@ -25,7 +25,7 @@ class HomeView{
     //This is the shell for personal page
     function generateHome() {
         ob_start();
-            include 'views/templates/home.php';
+            include 'views/templates/homePage.php';
         return ob_get_clean();
     }
     function generateHeader() {
