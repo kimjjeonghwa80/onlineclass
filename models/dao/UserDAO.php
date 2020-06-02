@@ -26,40 +26,8 @@ class UserDAO extends DAO{
         );
     }
 
-    function save($data) {
-        $data['pk_id']          = -1;
-        $data['session_token']  =  0;
-        $data['session_time']   =  0; 
-        $object = $this->create($data);
-        //var_dump("User object: ", $object);
-        if ($object) {
-            $qry = "(";
-            $values = array();
-            $params = "(";
-            
-            foreach($this->properties as $property) {
-                //var_dump($property);
-                if($property !== 'pk_id') {
-                    $qry.= $property.','; 
-                    array_push($values, $object->__get($property));
-                }
-            }
 
-            $qry = rtrim($qry, ",");
-            $qry.=')';
-            $qry = "INSERT INTO {$this->table}{$qry} VALUES (?, ?, ?, ?, ?, ?, ?)";
-            //var_dump($qry);
-
-
-            try {
-                $statement = $this->connection->prepare($qry);
-                $statement->execute($values);
-            } catch(PDOException $e) {
-                print $e->getMessage();
-            }
-        } 
-    }
-
+    //verify and generate token if success login
     function verify($email, $password) {
         try {
             $statement = $this->connection->prepare("SELECT * FROM {$this->table} WHERE email = ?");

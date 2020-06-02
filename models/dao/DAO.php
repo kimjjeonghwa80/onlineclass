@@ -10,35 +10,31 @@ abstract class DAO {
         $this->object_list = array();
     }
     
-    function delete($pk) {
-       $this->deleteBehaviour->delete($pk);
-    }
-    
-    function fetch($pk) {
-        try {
-            $statement = $this->connection->prepare("SELECT * FROM {$this->table} WHERE pk = ?");
-            $statement->execute([$pk]);
-            $result = $statement->fetch(PDO::FETCH_ASSOC);
+  
+    function fetchById($pk_id){
+        try{
+            $stmt = $this->connection->prepare("SELECT * FROM {$this->table} WHERE pk_id = ?");
+            $stmt->execute([$pk_id]);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
             
-            return $this->create($result);
-            
-        } catch (PDOException $e) {
-            print $e->getMessage();
+            return $result;
+
+        }catch(PDOException $ex){
+            $ex->getMessage();
         }
     }
-
-   
     
+
     function save($data) {
-        $data['pk'] = -1; 
-        $object = $this->create($data);
+        $object = $this->create($data);                 // create
+        //var_dump("User object: ", $object);
         if ($object) {
             $qry = "(";
             $values = array();
-            $params = "(";
             
             foreach($this->properties as $property) {
-                if($property !== 'pk') {
+                //var_dump($property);
+                if($property !== 'pk_id') {
                     $qry.= $property.','; 
                     array_push($values, $object->__get($property));
                 }
@@ -46,8 +42,14 @@ abstract class DAO {
 
             $qry = rtrim($qry, ",");
             $qry.=')';
-            $qry = "INSERT INTO {$this->table} {$qry} VALUES (?, ?, ?, ?, ?, ?)";
-            
+            $params = "(" .str_repeat("?," , count($data) -1 );
+            $params = rtrim($params, ",");
+            $params .= ")";
+
+            $qry = "INSERT INTO {$this->table}{$qry} VALUES {$params}";
+            //var_dump($qry);
+
+
             try {
                 $statement = $this->connection->prepare($qry);
                 $statement->execute($values);
@@ -56,26 +58,7 @@ abstract class DAO {
             }
         } 
     }
-    
-    function fetchAll() {
-        try {
-            $statement = $this->connection->prepare("SELECT * FROM {$this->table}");
-            $statement->execute();
-            $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-            
-            foreach($results as $data) {
-                //CREER UN NOUVEL OBJET
-                //AJOUTE CET OBJET A NOTRE LISTE DE PRODUIT
-                array_push($this->object_list, $this->create($data));
-            }
-            
-            return $this->object_list;
-            
-        } catch (PDOException $e) {
-            print $e->getMessage();
-        }    
-    }
-    
+
     function __get($property) {
         if (property_exists($this, $property)) {
 			return $this->$property;

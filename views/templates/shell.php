@@ -12,7 +12,7 @@
     <a href="/">HOME</a>
     <a href="/login.php">LOGIN</a>
     <a href="#">COURS</a>
-    <a href="#" id="userLogin">USER</a>
+    <!-- <a href="#" id="userLogin">USER</a> -->
 </div>
 <body>
     <?= $this->__get('page'); ?>

@@ -14,15 +14,15 @@ class User{
 
     function __construct($pk_id, $lastname, $firstname, $email, $password, $role, $session_token, $session_time)
     {
-        $this->pk_id        = $pk_id;
-        $this->lastname     = $lastname;
-        $this->firstname    = $firstname;
-        $this->email        = $email;
-        $this->password     = $password;
-        $this->fk_role      = $role;
-        $this->session_token = $session_token;
-        $this->session_time = $session_time;
-        //var_dump("User Object : ",$this);
+        $this->pk_id            = $pk_id;
+        $this->lastname         = $lastname;
+        $this->firstname        = $firstname;
+        $this->email            = $email;
+        $this->password         = $password;
+        $this->fk_role          = $role;
+        $this->session_token    = $session_token;
+        $this->session_time     = $session_time;
+        
     }
 
 

@@ -49,7 +49,7 @@ if(isset($_POST) && isset($_POST['login'], $_POST['password'])){
     $user = $user->verify($_POST['login'], $_POST['password']);
 
     if($user){
-        //echo "loggin success ...";
+        //echo "loggin success ..."; //TODO remove here
         $test = array(
             "user" => "bruce"
         );

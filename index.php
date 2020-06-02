@@ -18,25 +18,17 @@ spl_autoload_register(function($class) {
 $router = new Router($_GET, $_POST, $_SERVER['PHP_SELF'], $_SERVER['REQUEST_URI']);
 
 
-//echo "<pre>";
-//var_dump($router);
-// $user = new UserDAO();
-// $user->save(
-//         [
-//             'pk_id'     => 5,
-//             'lastname'  => "Vandamme",
-//             'firstname' => "Jean-Claude",
-//             'email'     => "jean@claude",
-//             'password'  => "132456",
-//             'fk_role'   => 1
-//         ]
-//     );
-//var_dump($user);
+echo "<pre>";
 
 
-// $data['pk_id'],
-// $data['lastname'],
-// $data['firstname'],
-// $data['email'],
-// $data['password'],
-// $data['fk_role']
+$module = new ModuleDAO();
+
+$arr = array(
+    "pk_id" => 3,
+    "name"  => "test"
+
+);
+
+//var_dump(count($arr));
+
+$module->save($arr);
