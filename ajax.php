@@ -18,7 +18,7 @@ spl_autoload_register(function($class) {
 
 
 //echo "Try to register...";
-var_dump($_POST);
+//var_dump($_POST);
 
 if(isset($_POST) && isset($_POST['pk_id'], $_POST['lastname'],$_POST['firstname'],$_POST['email'],$_POST['password'],$_POST['fk_role'])){
     echo "try to register";
@@ -44,6 +44,8 @@ if(isset($_POST) && isset($_POST['pk_id'], $_POST['lastname'],$_POST['firstname'
 
 if(isset($_POST) && isset($_POST['login'], $_POST['password'])){
     //echo "receive login post ... ";
+    //to clean
+
 
     $user = new UserDAO();
     $user = $user->verify($_POST['login'], $_POST['password']);
@@ -63,11 +65,26 @@ if(isset($_POST) && isset($_POST['login'], $_POST['password'])){
     }
 }
 
-//echo "<pre>";
+if(isset($_GET) && isset($_GET['allcourses'])){
+    
+    $courses = new CourseDAO();
+    $arr = array();
+    $arr = $courses->fetchAll();
 
-            // $data['pk_id'],
-            // $data['lastname'],
-            // $data['firstname'],
-            // $data['email'],
-            // $data['password'],
-            // $data['fk_role']
+    //var_dump($arr);
+    $response = json_encode($arr);
+    echo $response;
+
+
+
+    //wrong format for json
+    // $test = array({
+    //         ["pk_id"]       =>  "2",
+    //         ["courseName"]  => "Comptability",
+    //         ["description"] => "Lorem ipsum dolor sit amet, consectetur adipiscing elit." ,
+    //         ["beginAt"]     =>  "2020-09-01", 
+    //         ["lastname"]    => "bruce" ,
+    //         ["name"]        => "useless_modules"
+    // });
+    //echo json_encode(array("hello" => "world", "bonjour" => "aurevoir"));
+}

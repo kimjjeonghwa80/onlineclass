@@ -24,7 +24,24 @@ abstract class DAO {
         }
     }
     
+    function fetchAll(){
+        try {
+            $statement = $this->connection->prepare("SELECT * FROM {$this->table}");
+            $statement->execute();
+            $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+            
+            foreach($results as $data) {
+                array_push($this->object_list, $this->create($data));
+            }
+            
+            return $this->object_list;
+            
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        } 
+    }
 
+    
     function save($data) {
         $object = $this->create($data);                 // create
         //var_dump("User object: ", $object);

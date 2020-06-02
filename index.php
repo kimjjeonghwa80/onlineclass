@@ -20,15 +20,3 @@ $router = new Router($_GET, $_POST, $_SERVER['PHP_SELF'], $_SERVER['REQUEST_URI'
 
 echo "<pre>";
 
-
-$module = new ModuleDAO();
-
-$arr = array(
-    "pk_id" => 3,
-    "name"  => "test"
-
-);
-
-//var_dump(count($arr));
-
-$module->save($arr);

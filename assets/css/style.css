@@ -16,7 +16,7 @@ header {
 .navbar{
     font-family: Raleway;
     margin: 0 auto;
-	padding: 1em 3em;
+	  padding: 1em 3em;
     text-align: center;
     background: #264653;
 }
@@ -146,6 +146,59 @@ input[type=text], input[type=password] {
 
 /* TABLE */
 
+.containerTable {
+  width: 50%;
+  margin: auto;
+}
+
+#tableCourses {
+
+  margin-top: 35px;
+
+}
+
+td {
+
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  max-width: 350px;
+
+}
+
+/*TODO exclure le titre*/
+tr:nth-child(even) td:not(:last-child){
+  background-color: #f2f2f2;
+}
+tr:hover td:not(:last-child){
+  background-color: #cacfca;
+}
+
+.editCourse {
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+
+}
+
+.editCourse:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+/* .containerTable{
+  padding: 16px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#containerTable{
+  width: 20px;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -155,8 +208,17 @@ td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+  width: 50px;
+  
 }
 
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+#truncate{
+  width: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */

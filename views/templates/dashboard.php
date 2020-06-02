@@ -15,17 +15,17 @@
 </div>
 <body>
     
-    <?= $this->__get('page'); ?>
-    <div class="containerRegister">
+    
+    <div class="containerTable">
         <table id="tableCourses">
             <tbody>
                 <tr>
-
                     <th>Modules</th>
                     <th>Teacher</th>
                     <th>Courses</th>
                     <th>Start</th>
                     <th>Description</th>
+                    <th></th>
                 </tr>
             </tbody> 
         </table>
