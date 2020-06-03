@@ -17,10 +17,13 @@ $(document).ready(function (){
         var xhr = $.post('/ajax.php', data, function(){
             console.log("send post login ...");
         })
-        .done(function(sm){
-            console.log('success !!');
-            //console.log(sm);          //TODO catch response back from server
+        .done(function(rsp){
+            //console.log('success !!');
+
+            var response = JSON.parse(rsp);
+            //console.log(response);
             localStorage.setItem("username", email);
+            localStorage.setItem("role", response.isTeacher);
             window.location.href = '/home.php';
             
         })

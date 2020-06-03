@@ -17,11 +17,9 @@ spl_autoload_register(function($class) {
 
 
 
-//echo "Try to register...";
-//var_dump($_POST);
-
+//Try to register...";
 if(isset($_POST) && isset($_POST['pk_id'], $_POST['lastname'],$_POST['firstname'],$_POST['email'],$_POST['password'],$_POST['fk_role'])){
-    echo "try to register";
+    //echo "try to register";
 
     $pwd = password_hash($_POST['password'], PASSWORD_DEFAULT);
     //var_dump($pwd);
@@ -51,11 +49,10 @@ if(isset($_POST) && isset($_POST['login'], $_POST['password'])){
     $user = $user->verify($_POST['login'], $_POST['password']);
 
     if($user){
-        //echo "loggin success ..."; //TODO remove here
-        $test = array(
-            "user" => "bruce"
-        );
-        echo json_encode($test);
+
+        $isTeacher = $user->isTeacher();
+        $arr = array("success" => true, "isTeacher" => $isTeacher);
+        echo json_encode($arr);
 
     }else{
         $response = array("success" => false);

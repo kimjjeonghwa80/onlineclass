@@ -25,6 +25,9 @@ class User{
         
     }
 
+    function isTeacher(){
+        return $this->fk_role == 1 ? true : false;
+    }
 
     function __get($property) {
         if (property_exists($this, $property)) {
