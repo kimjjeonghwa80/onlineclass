@@ -41,6 +41,14 @@ abstract class DAO {
         } 
     }
 
+    function delete($pk) {
+        try {
+            $statement = $this->connection->prepare("DELETE FROM {$this->table} WHERE pk = ?");
+            $statement->execute([$pk]);
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        }
+    }
     
     function save($data) {
         $object = $this->create($data);                 // create
@@ -59,6 +67,7 @@ abstract class DAO {
 
             $qry = rtrim($qry, ",");
             $qry.=')';
+            /** adjust automaticly the numbers of parameters of the corresponding object */
             $params = "(" .str_repeat("?," , count($data) -1 );
             $params = rtrim($params, ",");
             $params .= ")";

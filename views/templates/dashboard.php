@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+        
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/assets/js/home.js"></script>
+    
     <title>Online Class</title>
 </head>
 <div class="navbar">
@@ -14,8 +17,7 @@
     <a href="#" id="userHome">USER</a>
 </div>
 <body>
-    
-    
+
     <div class="containerTable">
         <table id="tableCourses">
             <tbody>

@@ -149,6 +149,7 @@ input[type=text], input[type=password] {
 .containerTable {
   width: 50%;
   margin: auto;
+  
 }
 
 #tableCourses {
@@ -189,36 +190,3 @@ tr:hover td:not(:last-child){
   box-shadow: none;
 }
 
-/* .containerTable{
-  padding: 16px;
-  width: 50%;
-  margin: 0 auto;
-}
-
-#containerTable{
-  width: 20px;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-  width: 50px;
-  
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-#truncate{
-  width: 20px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-} */
