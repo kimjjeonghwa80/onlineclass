@@ -31,8 +31,8 @@ class CourseDAO extends DAO{
             $data['courseName'],
             $data['description'],
             $data['beginAt'],
-            $data['teacher'],
-            $data['module']
+            $data['fk_teacher'],
+            $data['fk_module']
             
         );
     }
@@ -62,7 +62,7 @@ class CourseDAO extends DAO{
 
    
 
-    public function fetchAll()
+    public function fetchAllz()
     {
         try {
             $statement = $this->connection->prepare("SELECT courses.pk_id,courses.courseName,courses.description,courses.beginAt,users.lastname,modules.name 
@@ -77,9 +77,10 @@ class CourseDAO extends DAO{
             $results = $statement->fetchAll(PDO::FETCH_ASSOC);
             //var_dump($results);
             foreach($results as $data) {
-                array_push($this->object_list, $this->createBis($data));
+                array_push($this->object_list, $this->createBis($data));            //can do better
             }
             
+            var_dump($results);
             return $this->object_list;
             
         } catch (PDOException $e) {

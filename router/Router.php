@@ -12,7 +12,7 @@ class Router {
     function __construct($get, $post, $self, $url) {
         $this->get = $get;
         $this->post = $post;
-        $this->controller_list = ['index', 'login', 'register','ajax','home', 'editCourse'];
+        $this->controller_list = ['index', 'login', 'register','ajax','home', 'editCourse','chatroom'];
         $this->controller_name = false;
         $this->controller = false;
         $this->root = $this->parseRoot($self);

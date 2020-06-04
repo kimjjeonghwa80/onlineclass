@@ -19,7 +19,7 @@ $(document).ready(function (){
     xmlhttp.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
             var rsp = JSON.parse(this.responseText);
-            //console.log(this.responseText);
+            console.log(rsp);
             if(rsp){
                 //console.log(typeof rsp);
                 rsp.forEach((element) => { //loop over object not array
@@ -30,7 +30,7 @@ $(document).ready(function (){
                             +  '<td class="coursesList">' + element['courseName']     + '</td>'
                             +  '<td class="coursesList">' + element['beginAt']        + '</td>'
                             +  '<td class="coursesList">' + element['description']    + '</td>'
-                            +  '<td><button class="editCourse">Edit</buton></td>' +
+                            +  '<td><button class="editCourse">Edit</buton></td>' +                             //todo if student dont put edit button
                         + '</tr>'
                   );
                 });
