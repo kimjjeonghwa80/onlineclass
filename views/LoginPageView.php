@@ -15,10 +15,10 @@ class LoginPageView {
     }
 
     function generatePage(){
-        $this->page = $this->generateHeader();
-        $this->page .= $this->generateLoginForm();
-        $this->page .= $this->generateFooter();
-        $this->render = $this->generateShell();
+        $this->page      = $this->generateHeader();
+        $this->page     .= $this->generateLoginForm();
+        $this->page     .= $this->generateFooter();
+        $this->render    = $this->generateShell();
     }
 
     function generateLoginForm(){

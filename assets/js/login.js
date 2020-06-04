@@ -23,7 +23,7 @@ $(document).ready(function (){
             var response = JSON.parse(rsp);
             //console.log(response);
             localStorage.setItem("username", email);
-            localStorage.setItem("role", response.isTeacher);
+            localStorage.setItem("isTeacher", response.isTeacher);
             window.location.href = '/home.php';
             
         })

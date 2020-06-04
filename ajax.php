@@ -19,8 +19,7 @@ spl_autoload_register(function($class) {
 
 //Try to register...";
 if(isset($_POST) && isset($_POST['pk_id'], $_POST['lastname'],$_POST['firstname'],$_POST['email'],$_POST['password'],$_POST['fk_role'])){
-    //echo "try to register";
-
+    
     $pwd = password_hash($_POST['password'], PASSWORD_DEFAULT);
     //var_dump($pwd);
 
@@ -40,10 +39,9 @@ if(isset($_POST) && isset($_POST['pk_id'], $_POST['lastname'],$_POST['firstname'
     $user->save($userPremise);
 }
 
+/** Login verify */
 if(isset($_POST) && isset($_POST['login'], $_POST['password'])){
-    //echo "receive login post ... ";
-    //to clean
-
+    //TODO cleaning
 
     $user = new UserDAO();
     $user = $user->verify($_POST['login'], $_POST['password']);
@@ -56,7 +54,7 @@ if(isset($_POST) && isset($_POST['login'], $_POST['password'])){
 
     }else{
         $response = array("success" => false);
-        echo json_encode($response);
+        echo json_encode($response);                    //to clean
         throw new Exception(json_encode($response));
     
     }
@@ -72,16 +70,15 @@ if(isset($_GET) && isset($_GET['allcourses'])){
     $response = json_encode($arr);
     echo $response;
 
+}
 
+if(isset($_POST) && isset($_POST['byRole'])){
+    $teacher = new UserDAO();
+    $arr = array();
+    $arr = $teacher->fetchByRole($_POST['byRole']);
 
-    //wrong format for json
-    // $test = array({
-    //         ["pk_id"]       =>  "2",
-    //         ["courseName"]  => "Comptability",
-    //         ["description"] => "Lorem ipsum dolor sit amet, consectetur adipiscing elit." ,
-    //         ["beginAt"]     =>  "2020-09-01", 
-    //         ["lastname"]    => "bruce" ,
-    //         ["name"]        => "useless_modules"
-    // });
-    //echo json_encode(array("hello" => "world", "bonjour" => "aurevoir"));
+    //var_dump(gettype($arr[0]));
+
+    $response = json_encode($arr, true);
+    echo $response;
 }

@@ -1,9 +1,9 @@
 <?php
-class HomeController {
+class EditCourseController {
     private $view;
    
     function __construct(){ 
-        $this->view = new HomeView();
+        $this->view = new EditCoursePageView();
         $this->displayPage();
 
     }

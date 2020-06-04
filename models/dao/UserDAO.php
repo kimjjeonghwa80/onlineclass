@@ -26,8 +26,23 @@ class UserDAO extends DAO{
         );
     }
 
+    function fetchByRole($fk_role){
+        try {
+            $statement = $this->connection->prepare("SELECT * FROM {$this->table} WHERE fk_role = {$fk_role}");
+            $statement->execute();
+            $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+            
+            foreach($results as $data) {
+                array_push($this->object_list, $this->create($data));
+            }
+            
+            return $this->object_list;
+            
+        } catch (PDOException $e) {
+            print $e->getMessage();
+        } 
+    }
 
-   
 
     //verify and generate token if success login
     function verify($email, $password) {
@@ -42,7 +57,7 @@ class UserDAO extends DAO{
                 $this->getRandomToken($user);
                 return $user;
             }
-            //var_dump('failed password verify');
+            
             return false;
         } catch (PDOException $e) {
            

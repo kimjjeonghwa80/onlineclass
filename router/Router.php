@@ -12,24 +12,20 @@ class Router {
     function __construct($get, $post, $self, $url) {
         $this->get = $get;
         $this->post = $post;
-        $this->controller_list = ['index', 'login', 'register','ajax','home'];
+        $this->controller_list = ['index', 'login', 'register','ajax','home', 'editCourse'];
         $this->controller_name = false;
         $this->controller = false;
         $this->root = $this->parseRoot($self);
-        //$this->root = "/";
         $this->route = $this->parseURL($url);
         $this->run();
 
-        //var_dump("self : ", $self);
-        //var_dump("url : ", $url);
-        //var_dump($_SERVER['PHP_SELF']);                     //   /login.php
-        //var_dump("GET : ", $this->get);
+       
         
     }
     
     private function parseRoot($self) {
         return str_replace('index.php', '', $self);
-        //return "/";
+        
     }
 
 
@@ -72,15 +68,9 @@ class Router {
         if($controller && in_array($controller, $this->controller_list)) {
             $this->controller_name = ucfirst($controller.'Controller');
 
-            //var_dump($this->controller_name);
-        } //else {
-        //     $this->controller_name = "IndexController"; //marche pas (renvoie 404 quand on met une mauvaise URL)
-        // } 
-        //nettoyer le path pour n'y laisser que ce qui est important
-        //return $path[3];
+           
+        } 
 
-        //var_dump($path); //is empty !!
-        //var_dump($this->$controller_name);
         return $path;
         
     }

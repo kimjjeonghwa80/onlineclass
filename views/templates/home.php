@@ -17,8 +17,9 @@
     <a href="#" id="userHome">USER</a>
 </div>
 <body>
-
+    <h1 id="role"></h1>
     <div class="containerTable">
+    <button><a href="#">Create Courses</a></button>
         <table id="tableCourses">
             <tbody>
                 <tr>

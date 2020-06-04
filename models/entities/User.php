@@ -1,5 +1,5 @@
 <?php
-class User{
+class User implements JsonSerializable{
     private $pk_id;
     private $firstname;
     private $lastname;
@@ -27,6 +27,19 @@ class User{
 
     function isTeacher(){
         return $this->fk_role == 1 ? true : false;
+    }
+
+
+    function jsonSerialize(){
+        return [
+                 '$pk_id'           => $this->__get('pk_id'),
+                 '$firstname'       => $this->__get('firstname'),
+                 '$lastname'        => $this->__get('lastname'),    
+                 '$email'           => $this->__get('email'),
+                 '$fk_role'         => $this->__get('fk_role'),
+                 '$session_token'   => $this->__get('session_token'),
+                 '$session_time'    => $this->__get('session_time')
+            ];
     }
 
     function __get($property) {

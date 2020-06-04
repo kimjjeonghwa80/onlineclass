@@ -4,10 +4,10 @@ $(document).ready(function (){
     var emailUser = localStorage.getItem("username"); //TODO get the response back to retrieve the username instead of email
     emailUser.toUpperCase();
 
-    if(localStorage.getItem("role")){
+    if(localStorage.getItem("isTeacher")){
         $("h1#role").html("Teacher view");
     }else{
-        $("h1#role").html("Student view");
+        $("h1#role").html("Student view");              //TODO setup a student view (gestion des droits)
     }
     /**
      * send post request to fetch all courses and display in table
@@ -52,14 +52,31 @@ $(document).ready(function (){
         var tds = trs.find("td");
         var arr = [];
 
-        // for(var i = 0; i < tds.length; ++i){
-        //     arr.push()
-        // }
+    
         $.each(tds, function(){
-            arr.push($(this).text()); //send to localStorage //TODO editpage 
+            // var th = $('#tableCourses th').eq($(this).index());
+            // console.log(th);
+            arr.push($(this).text()); 
+            //console.log(this);
         });
         
-        console.log(arr);
+        //I'm lazy, can do better
+        data = 
+        {
+            fk_module      : arr[0],
+            fk_teacher     : arr[1],
+            courseName     : arr[2],
+            beginAt        : arr[3],
+            description    : arr[4]
+        
+        }
+
+        localStorage.setItem("data", JSON.stringify(data));
+
+        // {"row" : [ {"modules" : 1 , "teacher" : 2, ...} ] }
+        
+               
+        window.location.href = "/editCourse.php";
         
     });
     
