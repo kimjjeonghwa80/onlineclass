@@ -82,3 +82,12 @@ if(isset($_POST) && isset($_POST['byRole'])){
     $response = json_encode($arr, true);
     echo $response;
 }
+
+if(isset($_GET) && isset($_GET['allModules'])){
+    $mod = new ModuleDAO();
+    $arr = array();
+    $arr = $mod->fetchAll();
+
+    $response = json_encode($arr, true);
+    echo $response;
+}

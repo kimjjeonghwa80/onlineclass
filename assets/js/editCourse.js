@@ -20,15 +20,13 @@ $(document).ready(function(){
             console.log(JSON.parse(rsp));
             var rsp = JSON.parse(rsp);
             for(var i=0; i<rsp.length;++i){
-                if(rsp[i].$lastname == ) //TODO selected ...
-                $('#teacher').append("<option>" + rsp[i].$lastname + "</option>");                  //can do better ... :(
+                if(rsp[i].lastname){ //TODO selected option on previous page ...
+                    $('#teacher').append("<option>" + rsp[i].lastname + "</option>");                  
+                } 
             }
-
-
         })
         .fail(function (err){
             console.log('boom ...');
-
         });
 
         console.log(keys);
@@ -36,8 +34,39 @@ $(document).ready(function(){
         $('#' + keys[2]).val(data['courseName']);
         $('#' + keys[3]).val(data['beginAt']);
         $('#' + keys[4]).val(data['description']);
-        
 
+        $.get("/ajax.php?allModules", function(){
+
+        })
+        .done(function (rsp){
+            var rsp = JSON.parse(rsp);
+            for(var i=0; i<rsp.length;++i){
+                if(rsp[i].name){ //TODO selected option on previous page ...
+                    $('#module').append("<option>" + rsp[i].name + "</option>");                  
+                } 
+            }
+        })
+        .fail(function (err){
+
+        });
+
+
+        /** submit update */
+    
+        $('#submitRegisterCourse').on('submit', function(e){
+            e.preventDefault();
+
+            //console.log("try sumbit");
+            var courseName = $('#courseName').val();
+            var beginAt = $('#beginAt').val();
+            var description = $('#description').val();
+            var fk_teacher = $('#teacher').val();
+            var module = $('#module').val();
+
+            var data = {courseName,courseName,description,beginAt,fk_teacher,fk_module};
+            console.log(data);
+        });
+        
     }
 
 });

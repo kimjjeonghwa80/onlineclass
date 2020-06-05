@@ -32,13 +32,13 @@ class User implements JsonSerializable{
 
     function jsonSerialize(){
         return [
-                 '$pk_id'           => $this->__get('pk_id'),
-                 '$firstname'       => $this->__get('firstname'),
-                 '$lastname'        => $this->__get('lastname'),    
-                 '$email'           => $this->__get('email'),
-                 '$fk_role'         => $this->__get('fk_role'),
-                 '$session_token'   => $this->__get('session_token'),
-                 '$session_time'    => $this->__get('session_time')
+                 'pk_id'           => $this->__get('pk_id'),
+                 'firstname'       => $this->__get('firstname'),
+                 'lastname'        => $this->__get('lastname'),    
+                 'email'           => $this->__get('email'),
+                 'fk_role'         => $this->__get('fk_role'),
+                 'session_token'   => $this->__get('session_token'),
+                 'session_time'    => $this->__get('session_time')
             ];
     }
 

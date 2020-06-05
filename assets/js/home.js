@@ -25,6 +25,7 @@ $(document).ready(function (){
                 rsp.forEach((element) => { //loop over object not array
                     $('#tableCourses > tbody:last-child').append(
                         '<tr>'
+                            
                             +  '<td class="coursesList">TODO</td>'
                             +  '<td class="coursesList">TODO</td>'
                             +  '<td class="coursesList">' + element['courseName']     + '</td>'
@@ -63,11 +64,12 @@ $(document).ready(function (){
         //I'm lazy, can do better
         data = 
         {
-            fk_module      : arr[0],
+            module         : arr[0],
             fk_teacher     : arr[1],
             courseName     : arr[2],
             beginAt        : arr[3],
-            description    : arr[4]
+            description    : arr[4],
+            fk_module      : arr[6]
         
         }
 

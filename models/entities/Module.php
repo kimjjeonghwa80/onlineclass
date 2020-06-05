@@ -1,5 +1,5 @@
 <?php
-class Module{
+class Module implements JsonSerializable{ 
     private $pk_id;
     private $name;
 
@@ -26,5 +26,11 @@ class Module{
 		}
     }
 
+    function jsonSerialize(){
+        return [
+                'pk_id'     => $this->__get('pk_id'),
+                'name'      => $this->__get('name')
+        ];
+    }
 
 }

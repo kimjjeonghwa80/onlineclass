@@ -21,5 +21,5 @@
     <input type="text" placeholder="description"    name="description"    id="description" required/>
     <br>
     <br>
-    <input type="submit" />
+    <input type="submit"/>
 </form>
