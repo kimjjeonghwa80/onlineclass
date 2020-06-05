@@ -56,10 +56,8 @@ $(document).ready(function (){
 
     
         $.each(tds, function(){
-            // var th = $('#tableCourses th').eq($(this).index());
-            // console.log(th);
             arr.push($(this).text()); 
-            //console.log(this);
+            
         });
         
         //I'm lazy, can do better

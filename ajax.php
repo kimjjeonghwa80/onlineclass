@@ -44,7 +44,7 @@ if(isset($_POST) && isset($_POST['login'], $_POST['password'])){
     //TODO cleaning
 
     $user = new UserDAO();
-    $user = $user->verify($_POST['login'], $_POST['password']);
+    $user = $user->verify(htmlspecialchars($_POST['login']), htmlspecialchars($_POST['password']));     //OWASP stuff - just for prove of understanding
 
     if($user){
 

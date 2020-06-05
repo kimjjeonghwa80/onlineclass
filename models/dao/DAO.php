@@ -10,7 +10,8 @@ abstract class DAO {
         $this->object_list = array();
     }
     
-  
+    //CRUD done !
+    
     function fetchById($pk_id){
         try{
             $stmt = $this->connection->prepare("SELECT * FROM {$this->table} WHERE pk_id = ?");
@@ -49,7 +50,34 @@ abstract class DAO {
             print $e->getMessage();
         }
     }
-    
+
+    //"UPDATE table SET lastname='Doe' WHERE id=2";
+    function update($data){
+        $object = $this->create($data);
+        if($object){
+            $qry = "SET ";
+            
+            foreach($this->properties as $property){
+                if($property !== 'pk_id'){
+                    $qry .= $property . ' = ';
+                    $qry .= $$object->__get($property);
+                    $qry .= ',' ;
+                }
+            }
+
+            $qry = rtrim($qry, ",");
+            $qry = "UPDATE {$this->table} {$qry} WHERE pk_id = ?"; 
+
+            try {
+                $statement = $this->connection->prepare($qry);
+                $statement->execute([$data['pk_id']]);
+            } catch(PDOException $e) {
+                print $e->getMessage();
+            }
+
+        }
+    }
+
     function save($data) {
         $object = $this->create($data);                 // create
         //var_dump("User object: ", $object);

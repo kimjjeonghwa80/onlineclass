@@ -26,7 +26,7 @@ $(document).ready(function(){
             }
         })
         .fail(function (err){
-            console.log('boom ...');
+            console.log('boom ... !');
         });
 
         console.log(keys);
@@ -57,14 +57,16 @@ $(document).ready(function(){
             e.preventDefault();
 
             //console.log("try sumbit");
-            var courseName = $('#courseName').val();
-            var beginAt = $('#beginAt').val();
-            var description = $('#description').val();
-            var fk_teacher = $('#teacher').val();
-            var module = $('#module').val();
+            // var courseName = $('#courseName').val();
+            // var beginAt = $('#beginAt').val();
+            // var description = $('#description').val();
+            // var fk_teacher = $('#teacher').val();
+            // var module = $('#module').val();
 
-            var data = {courseName,courseName,description,beginAt,fk_teacher,fk_module};
-            console.log(data);
+            // var data = {courseName,courseName,description,beginAt,fk_teacher,fk_module};
+            // console.log(data);
+
+            console.log("sorry not finished :( - but php dao update is ready to do his job...");
         });
         
     }
