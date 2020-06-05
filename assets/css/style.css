@@ -190,3 +190,8 @@ tr:hover td:not(:last-child){
   box-shadow: none;
 }
 
+#failed{
+  position: absolute;
+  visibility: hidden;
+  
+}

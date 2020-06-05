@@ -29,6 +29,10 @@ $(document).ready(function (){
         })
         .fail(function(data){
             console.log(data.responseText);
+            $('#failed').css({
+                'visibility' : "visible",
+                'color' : "red"
+            }); //very ugly message 
         });
 
         //console.log(xhr);
