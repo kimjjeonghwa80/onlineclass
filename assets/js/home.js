@@ -40,6 +40,7 @@ $(document).ready(function (){
             
         }
     }
+
     // send request
     xmlhttp.open("GET", "/ajax.php?allcourses", true);
     xmlhttp.send();
