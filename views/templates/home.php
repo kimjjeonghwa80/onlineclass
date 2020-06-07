@@ -12,7 +12,6 @@
 </head>
 <div class="navbar">
     <a href="/">HOME</a>
-    <a href="/chatroom.php">CHAT</a>
     <a href="#">COURS</a>
     <a href="#" id="userHome">USER</a>
 </div>
